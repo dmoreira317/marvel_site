@@ -12,9 +12,10 @@
     {% block head %} <!--esto se usa para ser modificado por Django-->
     <!--aqui ira el titulo de cada pagina html-->
     {% endblock %}
-    <!--<link rel="stylesheet" href="{% static "css/style1.css" %}"> -->
+    <!-- <link rel="stylesheet" href="{% static "css/style1.css" %}"> -->
 </head>
 <body>
+    <div class="bg-dark">
     <!--Bootstrap Nav-bar-->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
@@ -56,11 +57,13 @@
           </div>
         </div>
       </nav>
+      
       <!--carousel-->
       
     {% block block1 %} <!--esto se usa para ser modificado por Django-->
     <!--aqui ira el contenido de cada pagina-->
     {% endblock %}
 
+    </div>
 </body>
 </html>
