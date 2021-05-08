@@ -20,5 +20,5 @@ from marvelapp01 import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path("", views.vista1, name="main" )
+    path("", views.vista2, name="index" )
 ]
