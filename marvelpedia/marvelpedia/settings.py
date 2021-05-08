@@ -11,10 +11,14 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-
+TEMPLATE_DIR = os.path.join(BASE_DIR, "marvelpedia/templates") # creo el directorio de templates para acceder a ellos
+print(TEMPLATE_DIR)
+STATIC_DIR = os.path.join(BASE_DIR, "marvelpedia/static/") # creo el path a los static files
+print(STATIC_DIR)
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
@@ -37,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'marvelapp01',
 ]
 
 MIDDLEWARE = [
@@ -54,7 +59,7 @@ ROOT_URLCONF = 'marvelpedia.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [TEMPLATE_DIR],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -123,3 +128,5 @@ STATIC_URL = '/static/'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+STATICFILES_DIRS = [STATIC_DIR]
