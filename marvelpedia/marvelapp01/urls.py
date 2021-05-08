@@ -1,6 +1,6 @@
 from django.conf.urls import url
 from django.urls import path
-from aplicacion1 import views
+from marvelapp01 import views
 
 ### aqui se generan las rutas relativas
 
