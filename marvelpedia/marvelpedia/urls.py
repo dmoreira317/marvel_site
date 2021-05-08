@@ -20,5 +20,6 @@ from marvelapp01 import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path("", views.vista2, name="index" )
+    path("", views.vista2, name="index" ),
+    path('page/', include('marvelapp01.urls')),
 ]
