@@ -9,8 +9,8 @@
 {% block block1 %}    
 <!--content-->
     <h1 class="text-white">Test for characters</h1>
-    <form action="" method="get">
-        <span class="text-white"> Nombre de personaje</span><input type="text" name="char_search" id="char_search">
+    <form action="{% url 'marvelapp01:characters_search' %}" method="get">
+        <span class="text-white"> Nombre de personaje</span><input type="text" name="name" id="name">
         <input type="submit" value="Submit">
     </form>
 

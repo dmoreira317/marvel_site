@@ -8,12 +8,14 @@
 
 {% block block1 %}    
 <!--content-->
-    <div>
-        <p class="text-white">{% from API_requests_marvel import API_request
+            {% from API_requests_marvel import API_request
             
-            result = API_request(https://gateway.marvel.com:443/v1/public/characters?name=hulk)
-            print(result.text)
-            %}
+            url = "https://gateway.marvel.com:443/v1/public/characters?name=hulk"
+            result = API_request(url)
+            print(result.text) %}
+    <div>
+        <p class="text-white">
+            {{result}}
         </p>
     </div>
 

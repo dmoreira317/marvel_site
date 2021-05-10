@@ -23,7 +23,7 @@ def characters_search(request):
     if request.method == "GET":  # This will retrieve the form fields, in this case, char_search
         char_search1 = forms.Form1(request.GET) # creating a variable that receives the GET
         if char_search1.is_valid(): #If request is valid, I pass the value of "name"
-            name = char_search.cleaned_data["name"]
+            name = char_search1.cleaned_data["name"]
             print("Name =" + name) #print in terminal
     return render(request, "marvelapp01/characters_search.html", context=dictionary)
 
