@@ -4,6 +4,9 @@ import os
 import time
 import hashlib
 from dotenv import load_dotenv
+from django import template
+
+register = template.Library()
 
 #This isn't linked to anything as of now
 
@@ -27,8 +30,9 @@ def API_request(url):
         "hash": HASH,
     }
     test_request = requests.get(url, params=params)
-    return print(test_request.text)
+    return test_request.text
 
+register.filter("API_request", API_request)
 # test search
 #url = "http://gateway.marvel.com/v1/public/comics"
 #API_request(url)

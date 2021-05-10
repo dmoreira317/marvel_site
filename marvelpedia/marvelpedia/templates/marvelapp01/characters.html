@@ -9,4 +9,15 @@
 {% block block1 %}    
 <!--content-->
     <h1 class="text-white">Test for characters</h1>
+    <form action="" method="get">
+        <span class="text-white"> Nombre de personaje</span><input type="text" name="char_search" id="char_search">
+        <input type="submit" value="Submit">
+    </form>
+
+    {% from API_requests_marvel import API_request
+        
+        result = API_request(https://gateway.marvel.com:443/v1/public/characters?name=hulk)
+        print(result.text)
+        %}
+
 {% endblock %}
