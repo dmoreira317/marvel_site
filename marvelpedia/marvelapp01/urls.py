@@ -7,6 +7,8 @@ from marvelapp01 import views
 app_name = "marvelapp01"
 
 urlpatterns = [
-    #path("pagina4/", views.pagina4, name = "pagina4"),
+    path("characters/", views.characters, name = "characters"),
+    path("series/", views.series, name = "series"),
+    path("comics/", views.comics, name = "comics"),
     
 ]

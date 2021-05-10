@@ -30,5 +30,5 @@ def API_request(url):
     return print(test_request.text)
 
 # test search
-# url = "http://gateway.marvel.com/v1/public/comics"
-# API_request(url)
+#url = "http://gateway.marvel.com/v1/public/comics"
+#API_request(url)
