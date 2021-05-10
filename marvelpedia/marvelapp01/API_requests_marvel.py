@@ -1,12 +1,9 @@
-import json
 import sys
-import html
 import requests
 import os
 import time
 import hashlib
 from dotenv import load_dotenv
-
 
 #This isn't linked to anything as of now
 
