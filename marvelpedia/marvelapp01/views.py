@@ -25,6 +25,9 @@ def characters_search(request):
         if char_search1.is_valid(): #If request is valid, I pass the value of "name"
             name = char_search1.cleaned_data["name"]
             print("Name =" + name) #print in terminal
+
+    dictionary["name"] = name
+    print(dictionary)
     return render(request, "marvelapp01/characters_search.html", context=dictionary)
 
 
