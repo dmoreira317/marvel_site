@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse # This takes http requests
 from . import forms
+from marvelapp01.marvelApiRequests import API_request
 
 
 # Create your views here.
@@ -25,8 +26,12 @@ def characters_search(request):
         if char_search1.is_valid(): #If request is valid, I pass the value of "name"
             name = char_search1.cleaned_data["name"]
             print("Name =" + name) #print in terminal
+        
+    url = f"https://gateway.marvel.com:443/v1/public/characters?name={name}"
+    result = API_request(url)
+    print(result)
 
-    dictionary["name"] = name
+    dictionary["result"] = result
     print(dictionary)
     return render(request, "marvelapp01/characters_search.html", context=dictionary)
 
