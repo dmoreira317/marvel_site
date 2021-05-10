@@ -1,2 +1,5 @@
 # Ignoring test images
 test_images
+
+# Ignoring .env
+.env
