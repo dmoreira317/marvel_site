@@ -9,15 +9,13 @@
 
 {% block block1 %}    
 <!--content-->
-    <div>
-        <p class="text-white blockquote text-center">
-            <ul class="text-white blockquote text-center">
-            {% for key, value in character_dict.items%}
-            <li>{{key}} : {{value}} </li>
-            {% endfor%}
-            </ul>
-            <img src="{{img_path}}" alt="" srcset="">
-        </p>
+<div class="row d-flex justify-content-center">   
+    <div class="card col-lg-3">
+        <img src="{{img_path}}" class="card-img-top" alt="char_image">
+        <div class="card-body">
+            <h5 class="card-title">{{character_dict.name}}</h5>
+            <p class="card-text">{{character_dict.description}} </p>
+        </div>
     </div>
-
+</div> 
 {% endblock %}

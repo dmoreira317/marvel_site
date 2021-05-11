@@ -8,10 +8,13 @@
 
 {% block block1 %}    
 <!--content-->
-    <h1 class="text-white">Test for characters</h1>
-    <form action="{% url 'marvelapp01:characters_search' %}" method="get">
-        <span class="text-white"> Nombre de personaje</span><input type="text" name="name" id="name">
-        <input type="submit" value="Submit">
+    <div class="my-5">
+    <h1 class="text-white text-center">Character's search</h1>
+    
+    <form action="{% url 'marvelapp01:characters_search' %}" method="get" class="text-center">
+        <span class="text-white"> Please enter the character's name </span><input type="text" name="name" id="name">
+        <input type="submit" value="Submit" class="btn btn-primary">
+        
     </form>
-
+    </div>
 {% endblock %}
