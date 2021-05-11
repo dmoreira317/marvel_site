@@ -35,8 +35,8 @@ def characters_search(request):
     dictionary["character_dict"] = character_dict
 
     img_path = image_view_generator(character_dict["thumbnail"], "portrait_uncanny")
-
     dictionary["img_path"] = img_path
+    
     print(dictionary)
     return render(request, "marvelapp01/characters_search.html", context=dictionary)
 
