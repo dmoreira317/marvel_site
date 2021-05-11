@@ -2,12 +2,11 @@ from django.shortcuts import render
 from django.http import HttpResponse # This takes http requests
 from . import forms
 from marvelapp01.marvelApiRequests import API_request
-
+from marvelapp01.create_dicts import create_character_dict
 
 # Create your views here.
 def vista1(request):
     return HttpResponse("Hola Buenos dias")
-
 
 def vista2(request):
     dictionary = {}
@@ -31,7 +30,9 @@ def characters_search(request):
     result = API_request(url)
     print(result)
 
-    dictionary["result"] = result
+    character_dict = create_character_dict(result)
+
+    dictionary["character_dict"] = character_dict
     print(dictionary)
     return render(request, "marvelapp01/characters_search.html", context=dictionary)
 
