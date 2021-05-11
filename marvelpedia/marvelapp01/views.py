@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponse # This takes http requests
 from . import forms
 from marvelapp01.marvelApiRequests import API_request
-from marvelapp01.create_dicts import create_character_dict
+from marvelapp01.create_dicts import create_character_dictionary
 
 # Create your views here.
 def vista1(request):
@@ -30,7 +30,7 @@ def characters_search(request):
     result = API_request(url)
     print(result)
 
-    character_dict = create_character_dict(result)
+    character_dict = create_character_dictionary(result)
 
     dictionary["character_dict"] = character_dict
     print(dictionary)
