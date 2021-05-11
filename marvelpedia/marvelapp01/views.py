@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponse # This takes http requests
 from . import forms
 from marvelapp01.marvelApiRequests import API_request
-from marvelapp01.create_dicts import create_character_dictionary
+from marvelapp01.create_dicts import create_character_dictionary, image_view_generator
 import json
 
 # Create your views here.
@@ -33,6 +33,10 @@ def characters_search(request):
 
     character_dict = create_character_dictionary(result)
     dictionary["character_dict"] = character_dict
+
+    img_path = image_view_generator(character_dict["thumbnail"], "portrait_uncanny")
+
+    dictionary["img_path"] = img_path
     print(dictionary)
     return render(request, "marvelapp01/characters_search.html", context=dictionary)
 
