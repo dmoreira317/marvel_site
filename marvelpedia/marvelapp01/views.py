@@ -3,6 +3,7 @@ from django.http import HttpResponse # This takes http requests
 from . import forms
 from marvelapp01.marvelApiRequests import API_request
 from marvelapp01.create_dicts import create_character_dictionary, image_view_generator
+from marvelapp01.models import Person
 import json
 
 # Create your views here.
@@ -47,3 +48,24 @@ def comics(request):
 def series(request):
     dictionary = {}
     return render(request, "marvelapp01/series.html", context=dictionary)
+
+def register_success(request):
+    sign_up_form1 = forms.Form1() # class defined in forms.py
+    dictionary = {"sign_up_form1": sign_up_form1}
+    
+    if request.method == "POST":  # This will retrieve the form fields, in this case, char_search
+        sign_up_form2 = forms.Form1(request.POST) # creating a variable that receives the GET
+        if sign_up_form2.is_valid(): #If request is valid, I pass the value of "name"
+            name = sign_up_form2.cleaned_data["name"]
+            last_name = sign_up_form2.cleaned_data["name"]
+            email = sign_up_form2.cleaned_data["email"]
+            username = sign_up_form2.cleaned_data["username"]
+            password = sign_up_form2.cleaned_data["password"]
+            print("Name =" + name) #print in terminal
+    
+    return render(request, "marvelapp01/sign.html", context=dictionary)
+
+    
+def sign_up_form(request):
+    dictionary = {}
+    return render(request, "marvelapp01/sign_up_form.html", context=dictionary)
