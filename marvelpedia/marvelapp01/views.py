@@ -29,7 +29,7 @@ def characters_search(request):
         
     url = f"https://gateway.marvel.com:443/v1/public/characters?name={name}"
     result = API_request(url)
-    print(result)
+    #print(result)
 
     character_dict = create_character_dictionary(result)
     dictionary["character_dict"] = character_dict

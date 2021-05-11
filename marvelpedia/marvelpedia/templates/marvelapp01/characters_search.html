@@ -3,15 +3,20 @@
 
 {% block head %} <!--To modify the title of the page or any other head label-->
     <!--html page title-->
+    {% load dictionary_filter%}
     <title>Marvelpedia - Characters search</title>
 {% endblock %}
 
 {% block block1 %}    
 <!--content-->
     <div>
-        <p class="text-white">
-            {{name}}
-            {{character_dict}}
+        <p class="text-white blockquote text-center">
+            <ul class="text-white blockquote text-center">
+            {% for key, value in character_dict.items%}
+            <li>{{key}} : {{value}} </li>
+            {% endfor%}
+            </ul>
+            <img src={{character_dict|dict_filter:"thumbnail"}} alt="image">
         </p>
     </div>
 
