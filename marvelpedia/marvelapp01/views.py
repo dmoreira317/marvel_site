@@ -3,6 +3,7 @@ from django.http import HttpResponse # This takes http requests
 from . import forms
 from marvelapp01.marvelApiRequests import API_request
 from marvelapp01.create_dicts import create_character_dictionary
+import json
 
 # Create your views here.
 def vista1(request):
@@ -31,11 +32,9 @@ def characters_search(request):
     print(result)
 
     character_dict = create_character_dictionary(result)
-
     dictionary["character_dict"] = character_dict
     print(dictionary)
     return render(request, "marvelapp01/characters_search.html", context=dictionary)
-
 
 def comics(request):
     dictionary = {}
