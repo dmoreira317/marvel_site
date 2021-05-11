@@ -13,6 +13,5 @@ urlpatterns = [
     path("characters_search/", views.characters_search, name = "characters_search"),
     path("sign_up_form/", views.sign_up_form, name = "sign_up_form"),
     path("register_success/", views.register_success, name = "register_success"),
-
     
 ]
