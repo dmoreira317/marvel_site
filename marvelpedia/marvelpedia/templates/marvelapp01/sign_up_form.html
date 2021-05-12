@@ -3,25 +3,27 @@
 
 {% block head %} <!--To modify the title of the page or any other head label-->
     <!--html page title-->
+    
     <title>Marvelpedia - Sign-Up</title>
 {% endblock %}
 
+  
 {% block block1 %}    
 <!--content-->
-<div class="justify-content-center"> 
+<div class="container justify-content-center"> 
 <div class="my-5 text-white">
     <h1 class="text-white text-center">Sign Up Form</h1>
-    <form>
-        <div class="form-row">
-          <div class="col-md-4 mb-3">
+    <form class="align-items-center mx-3">
+        <div class="form-row mx-3 align-items-center">
+          <div class="mx-5 my-3">
             <label for="validationDefault01">First name</label>
             <input type="text" class="form-control" id="validationDefault01" placeholder="name" required>
           </div>
-          <div class="col-md-4 mb-3">
+          <div class="mx-5 my-3">
             <label for="validationDefault02">Last name</label>
             <input type="text" class="form-control" id="validationDefault02" placeholder="last name" required>
           </div>
-          <div class="col-md-4 mb-3">
+          <div class="mx-5 my-3">
             <label for="validationDefaultUsername">Username</label>
             <div class="input-group">
               <div class="input-group-prepend">
@@ -31,21 +33,23 @@
             </div>
           </div>
         </div>
-        <div class="col-md-4 mb-3">
+        <div class="form-row mx-3 align-items-center">
+        <div class="mx-5 my-3">
             <label for="validationDefaultPassword">Password</label>
             <input type="password" class="form-control" id="validationDefault02" required>
           </div>
-          <div class="col-md-4 mb-3">
+          <div class="mx-5 my-3">
             <label for="validationDefaultPassword">Please re-enter password</label>
             <input type="password" class="form-control" id="validationDefault02" required>
         </div>
-        <div class="form-row">
-          <div class="col-md-4 mb-3">
+       
+          <div class="mx-5 my-3">
             <label>Email</label>
             <input type="email" class="form-control" id="validationDefault03" placeholder="example@onemail.com" required>
           </div>
         </div>
-        <div class="form-group">
+    <div class="form-row mx-3 align-items-end">
+        <div class="form-group mx-5">
           <div class="form-check">
             <input class="form-check-input" type="checkbox" value="" id="invalidCheck2" required>
             <label class="form-check-label" for="invalidCheck2">
@@ -53,10 +57,12 @@
             </label>
           </div>
         </div>
-        <button class="btn btn-primary" type="submit">Submit form</button>
+    
+        <button class="btn btn-primary mx-5" type="submit">Submit form</button>
       </form>
+    </div>
         
-    </form>
     </div>
 </div>   
 {% endblock %}
+ 
