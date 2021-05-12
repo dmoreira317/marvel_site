@@ -18,164 +18,159 @@
     {% endblock %}
     
     <link rel="stylesheet" href="{% static "css/style1.css" %}">
-
 </head>
+
 <body>
     <div class="bg-dark">
     
-    <!--Bootstrap Nav-bar-->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-2">
-        <div class="container-fluid">
-          <a class="navbar-brand" href="{% url 'index' %}">Marvelpedia</a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item">
-                    <ul class="navbar-nav">
-                        <li><a class="nav-link" href="{% url 'marvelapp01:characters' %}" display="inline">Characters</a></li>
-                        <li><a class="nav-link" href="{% url 'marvelapp01:comics' %}" display="inline">Comics</a></li>
-                        <li><a class="nav-link" href="{% url 'marvelapp01:series' %}" display="inline">Series</a></li>
-                    </ul>
+      <!--Bootstrap Nav-bar-->
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-2">
+          <div class="container-fluid">
+            <a class="navbar-brand" href="{% url 'index' %}">Marvelpedia</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                  <li class="nav-item">
+                      <ul class="navbar-nav">
+                          <li><a class="nav-link" href="{% url 'marvelapp01:characters' %}" display="inline">Characters</a></li>
+                          <li><a class="nav-link" href="{% url 'marvelapp01:comics' %}" display="inline">Comics</a></li>
+                          <li><a class="nav-link" href="{% url 'marvelapp01:series' %}" display="inline">Series</a></li>
+                      </ul>
+                  </li>
+                  <li class="nav-item dropdown">
+                      <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Menu</a>
+                      <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                          <li><a class="dropdown-item" href="#">Miscellaneous</a></li>
+                          <li><a class="dropdown-item" href="#">About Marvelpedia</a></li>
+                          <li><hr class="dropdown-divider"></li>
+                          <li><a class="dropdown-item" href="#">Attribution to Marvel</a></li>
+                      </ul>
                 </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Menu</a>
-                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="#">Miscellaneous</a></li>
-                        <li><a class="dropdown-item" href="#">About Marvelpedia</a></li>
-                        <li><hr class="dropdown-divider"></li>
-                        <li><a class="dropdown-item" href="#">Attribution to Marvel</a></li>
-                    </ul>
-              </li>
-              <li class="nav-item">
-                <!--<a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>-->
-              </li>
-            </ul>
-            <form class="d-flex">
-              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-              <button class="btn btn-outline-success" type="submit">Search</button>
-            </form>
+                <li class="nav-item">
+                  <!--<a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>-->
+                </li>
+              </ul>
+              <form class="d-flex">
+                <button class="btn btn-outline-success px-5" type="submit">Log In</button>
+              </form>
+            </div>
           </div>
-        </div>
       </nav>
-      
-      <!--carousel-->
-      
+    <!--carousel-->
     {% block block1 %} <!--esto se usa para ser modificado por Django-->
     <!--aqui ira el contenido de cada pagina-->
     {% endblock %}
 
-<!-- Footer -->
-<footer class="page-footer font-small stylish-color-licht pt-4">
+    <!-- Footer -->
+    <footer class="page-footer font-small stylish-color-licht pt-4 mt-5">
+        <!-- Footer Links -->
+        <div class="container text-center text-md-left">
+          <!-- Grid row -->
+          <div class="row">
+      
+            <!-- Grid column -->
+            <div class="col-md-4 mx-auto">
+      
+              <!-- Content -->
+              <h5 class="font-weight-bold text-uppercase mt-3 mb-4 text-white">Marvelpedia links and social networks</h5>
+              <p class="text-white">As a Marvel fan as I am, the decision to create a page devoted to this universe was clear. Thanks for coming by! </p>
+      
+            </div>
+            <!--FOR MORE COLUMNS IN FOOTER-->
+            <!-- Grid column -->
+      
+            <!-- <hr class="clearfix w-100 d-md-none"> -->
+      
+            <!-- Grid column -->
+            <!-- <div class="col-md-2 mx-auto"> -->
+      
+              <!-- Links -->
+              <!-- <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Links</h5>
+      
+              <ul class="list-unstyled">
+                <li>
+                  <a href="#!">Link 1</a>
+                </li>
+                <li>
+                  <a href="#!">Link 2</a>
+                </li>
+                <li>
+                  <a href="#!">Link 3</a>
+                </li>
+                <li>
+                  <a href="#!">Link 4</a>
+                </li>
+              </ul>
+      
+            </div> -->
+            <!-- Grid column -->
+      
+            <!-- <hr class="clearfix w-100 d-md-none"> -->
 
-    <!-- Footer Links -->
-    <div class="container text-center text-md-left">
-  
-      <!-- Grid row -->
-      <div class="row">
-  
-        <!-- Grid column -->
-        <div class="col-md-4 mx-auto">
-  
-          <!-- Content -->
-          <h5 class="font-weight-bold text-uppercase mt-3 mb-4 text-white">Marvelpedia links and social networks</h5>
-          <p class="text-white">As a Marvel fan as I am, the decision to create a page devoted to this universe was clear. Thanks for coming by! </p>
-  
+            <!-- Grid column -->
+                
+            <div class="col-md-2 mx-auto">
+      
+              <!-- Links -->
+              <h5 class="font-weight-bold text-uppercase mt-3 mb-4 text-white">Useful Links</h5>
+      
+              <ul class="list-unstyled">
+                <li>
+                  <a href="https://www.marvel.com/" target="_blank">Marvel.com</a>
+                </li>
+                <li>
+                  <a href="https://es.wikipedia.org/wiki/Marvel_Comics" target="_blank">Marvel in wikipedia</a>
+                </li>
+              </ul>
+      
+            </div>
+            <!-- Grid column -->
+      
+          </div>
+          <!-- Grid row -->
+      
         </div>
-        <!--FOR MORE COLUMNS IN FOOTER-->
-        <!-- Grid column -->
-  
-        <!-- <hr class="clearfix w-100 d-md-none"> -->
-  
-        <!-- Grid column -->
-        <!-- <div class="col-md-2 mx-auto"> -->
-  
-          <!-- Links -->
-          <!-- <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Links</h5>
-  
-          <ul class="list-unstyled">
-            <li>
-              <a href="#!">Link 1</a>
-            </li>
-            <li>
-              <a href="#!">Link 2</a>
-            </li>
-            <li>
-              <a href="#!">Link 3</a>
-            </li>
-            <li>
-              <a href="#!">Link 4</a>
-            </li>
-          </ul>
-  
-        </div> -->
-        <!-- Grid column -->
-  
-        <!-- <hr class="clearfix w-100 d-md-none"> -->
+        <!-- Footer Links -->
+      
+        <hr>
+      
+        <!-- Call to action -->
+        <ul class="list-unstyled list-inline text-center py-2">
+          <li class="list-inline-item">
+            <h5 class="mb-1 text-white">Register for free</h5>
+          </li>
+          <li class="list-inline-item">
+            <a href="{% url 'marvelapp01:sign_up_form' %}" class="btn btn-success btn-rounded">Sign up!</a>
+          </li>
+        </ul>
+        <!-- Call to action -->
+      
+        <hr>
+      
+        <!-- Social buttons -->
+          <div id="social">
+            <a class="facebookBtn smGlobalBtn" href="#" ></a>
+            <!-- <a class="twitterBtn smGlobalBtn" href="#" ></a>
+            <a class="googleplusBtn smGlobalBtn" href="#" ></a> -->
+            <a class="linkedinBtn smGlobalBtn" href="#" ></a>
+            <!-- <a class="pinterestBtn smGlobalBtn" href="#" ></a>
+            <a class="tumblrBtn smGlobalBtn" href="#" ></a>
+            <a class="rssBtn smGlobalBtn" href="#" ></a> -->
+          </div>
 
-        <!-- Grid column -->
-             
-        <div class="col-md-2 mx-auto">
-  
-          <!-- Links -->
-          <h5 class="font-weight-bold text-uppercase mt-3 mb-4 text-white">Useful Links</h5>
-  
-          <ul class="list-unstyled">
-            <li>
-              <a href="https://www.marvel.com/" target="_blank">Marvel.com</a>
-            </li>
-            <li>
-              <a href="https://es.wikipedia.org/wiki/Marvel_Comics" target="_blank">Marvel in wikipedia</a>
-            </li>
-          </ul>
-  
+        <!-- Social buttons -->
+      
+        <!-- Copyright -->
+        <div class="footer-copyright text-center py-3 text-white">© 2021 Copyright:
+          <a href=""> @dlm317</a>
         </div>
-        <!-- Grid column -->
-  
-      </div>
-      <!-- Grid row -->
-  
-    </div>
-    <!-- Footer Links -->
-  
-    <hr>
-  
-    <!-- Call to action -->
-    <ul class="list-unstyled list-inline text-center py-2">
-      <li class="list-inline-item">
-        <h5 class="mb-1 text-white">Register for free</h5>
-      </li>
-      <li class="list-inline-item">
-        <a href="{% url 'marvelapp01:sign_up_form' %}" class="btn btn-success btn-rounded">Sign up!</a>
-      </li>
-    </ul>
-    <!-- Call to action -->
-  
-    <hr>
-  
-    <!-- Social buttons -->
-    <div id="social">
-        <a class="facebookBtn smGlobalBtn" href="#" ></a>
-        <!-- <a class="twitterBtn smGlobalBtn" href="#" ></a>
-        <a class="googleplusBtn smGlobalBtn" href="#" ></a> -->
-        <a class="linkedinBtn smGlobalBtn" href="#" ></a>
-        <!-- <a class="pinterestBtn smGlobalBtn" href="#" ></a>
-        <a class="tumblrBtn smGlobalBtn" href="#" ></a>
-        <a class="rssBtn smGlobalBtn" href="#" ></a> -->
-</div>
+        <!-- Copyright -->
+      
+    </footer>
+    <!-- Footer -->
 
-    <!-- Social buttons -->
-  
-    <!-- Copyright -->
-    <div class="footer-copyright text-center py-3 text-white">© 2021 Copyright:
-      <a href=""> @dlm317</a>
-    </div>
-    <!-- Copyright -->
-  
-  </footer>
-  <!-- Footer -->
-
-    </div>
+  </div>
 </body>
 </html>
