@@ -3,18 +3,16 @@
 
 {% block head %} <!--To modify the title of the page or any other head label-->
     <!--html page title-->
-    
     <title>Marvelpedia - Sign-Up</title>
 {% endblock %}
 
-  
 {% block block1 %}    
 <!--content-->
-<div class="container justify-content-center"> 
+<div class="container justify-content-center col-lg-5 align-items-center"> 
     <div class="my-5 text-white">
         <h1 class="text-white text-center">Sign Up Form</h1>
         <form class="align-items-center mx-3">
-            <div class="form-row mx-3 align-items-center">
+            <div class="form-row mx-3">
                 <div class="mx-5 my-3">
                     <label for="validationDefault01">First name</label>
                     <input type="text" class="form-control" id="validationDefault01" placeholder="name" required>
@@ -33,7 +31,7 @@
                     </div>
                 </div>
             </div>
-            <div class="form-row mx-3 align-items-center">
+            <div class="form-row mx-3">
                 <div class="mx-5 my-3">
                     <label for="validationDefaultPassword">Password</label>
                     <input type="password" class="form-control" id="validationDefault02" required>
@@ -48,7 +46,7 @@
                     <input type="email" class="form-control" id="validationDefault03" placeholder="example@onemail.com" required>
                 </div>
             </div>
-            <div class="form-row mx-3 align-items-end">
+            <div class="form-row mx-3 align-items-center">
                 <div class="form-group mx-5">
                     <div class="form-check">
                         <input class="form-check-input" type="checkbox" value="" id="invalidCheck2" required>
@@ -57,11 +55,14 @@
                         </label>
                     </div>
                 </div>
-                <button class="btn btn-primary mx-5" type="submit">Submit form</button>
+                <div class="form-row mx-4 align-items-center">
+                    <div class="container text-center">
+                        <button class="btn btn-primary mx-4 my-3 px-4" type="submit">Submit</button>
+                    </div>
+                </div>
             </div>
         </form>
     </div>
-            
 </div> 
 {% endblock %}
  
