@@ -63,7 +63,7 @@ def register_success(request):
             password = sign_up_form2.cleaned_data["password"]
             print("Name =" + name) #print in terminal
     
-    return render(request, "marvelapp01/sign.html", context=dictionary)
+    return render(request, "marvelapp01/register_success.html", context=dictionary)
 
     
 def sign_up_form(request):

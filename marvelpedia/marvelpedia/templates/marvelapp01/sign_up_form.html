@@ -11,7 +11,7 @@
 <div class="container justify-content-center col-lg-5 align-items-center"> 
     <div class="my-5 text-white">
         <h1 class="text-white text-center">Sign Up Form</h1>
-        <form class="align-items-center mx-3">
+        <form class="align-items-center mx-3" action="{% url 'marvelapp01:register_success' %}" method="POST">{% csrf_token %}
             <div class="form-row mx-3">
                 <div class="mx-5 my-3">
                     <label for="validationDefault01">First name</label>
