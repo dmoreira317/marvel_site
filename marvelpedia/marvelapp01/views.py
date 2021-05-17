@@ -3,7 +3,7 @@ from django.http import HttpResponse # This takes http requests
 from . import forms
 from marvelapp01.marvelApiRequests import API_request
 from marvelapp01.create_dicts import create_character_dictionary, image_view_generator
-from marvelapp01.models import Person
+
 import json
 
 # Create your views here.
@@ -61,17 +61,19 @@ def register_success(request):
             email = sign_up_form1.cleaned_data["email"]
             username = sign_up_form1.cleaned_data["username"]
             password = sign_up_form1.cleaned_data["password"]
-            print("Name =" + name) #print in terminal
-            print("Last name =" + last_name)
-            print("Username =" + username)
-            print("Email =" + email)
-            print("pass =" + password)
+            
+            sign_up_form1.save()
+            print("Name = " + name) #print in terminal
+            print("Last name = " + last_name)
+            print("Username = " + username)
+            print("Email = " + email)
+            print("pass = " + password)
         else:
             print("Invalid form request")
     else:
         print("Invalid POST")
     
-    print(dictionary["sign_up_form"])
+    #print(dictionary["sign_up_form"])
     return render(request, "marvelapp01/register_success.html", context=dictionary)
 
     
