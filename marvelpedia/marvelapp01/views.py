@@ -49,7 +49,7 @@ def series(request):
     dictionary = {}
     return render(request, "marvelapp01/series.html", context=dictionary)
 
-def register_success(request):
+def register_results(request):
     sign_up_form = forms.SignUpForm() # class defined in forms.py
     dictionary = {"sign_up_form": sign_up_form}
     
@@ -76,7 +76,7 @@ def register_success(request):
         print("Invalid POST")
     
     #print(dictionary["sign_up_form"])
-    return render(request, "marvelapp01/register_success.html", context=dictionary)
+    return render(request, "marvelapp01/register_results.html", context=dictionary)
 
     
 def sign_up_form(request):
