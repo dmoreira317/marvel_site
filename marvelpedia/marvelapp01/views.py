@@ -50,19 +50,28 @@ def series(request):
     return render(request, "marvelapp01/series.html", context=dictionary)
 
 def register_success(request):
-    sign_up_form1 = forms.Form1() # class defined in forms.py
-    dictionary = {"sign_up_form1": sign_up_form1}
+    sign_up_form = forms.SignUpForm() # class defined in forms.py
+    dictionary = {"sign_up_form": sign_up_form}
     
     if request.method == "POST":  # This will retrieve the form fields, in this case, char_search
-        sign_up_form2 = forms.Form1(request.POST) # creating a variable that receives the GET
-        if sign_up_form2.is_valid(): #If request is valid, I pass the value of "name"
-            name = sign_up_form2.cleaned_data["name"]
-            last_name = sign_up_form2.cleaned_data["name"]
-            email = sign_up_form2.cleaned_data["email"]
-            username = sign_up_form2.cleaned_data["username"]
-            password = sign_up_form2.cleaned_data["password"]
+        sign_up_form1 = forms.SignUpForm(request.POST) # creating a variable that receives the POST
+        if sign_up_form1.is_valid(): #If request is valid, I pass the value of "name"
+            name = sign_up_form1.cleaned_data["name"]
+            last_name = sign_up_form1.cleaned_data["last_name"]
+            email = sign_up_form1.cleaned_data["email"]
+            username = sign_up_form1.cleaned_data["username"]
+            password = sign_up_form1.cleaned_data["password"]
             print("Name =" + name) #print in terminal
+            print("Last name =" + last_name)
+            print("Username =" + username)
+            print("Email =" + email)
+            print("pass =" + password)
+        else:
+            print("Invalid form request")
+    else:
+        print("Invalid POST")
     
+    print(dictionary["sign_up_form"])
     return render(request, "marvelapp01/register_success.html", context=dictionary)
 
     
