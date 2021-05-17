@@ -62,12 +62,14 @@ def register_success(request):
             username = sign_up_form1.cleaned_data["username"]
             password = sign_up_form1.cleaned_data["password"]
             
+            # Creating a new Person object from the submitted form
             sign_up_form1.save()
+
             print("Name = " + name) #print in terminal
-            print("Last name = " + last_name)
-            print("Username = " + username)
-            print("Email = " + email)
-            print("pass = " + password)
+            # print("Last name = " + last_name)
+            # print("Username = " + username)
+            # print("Email = " + email)
+            # print("pass = " + password)
         else:
             print("Invalid form request")
     else:
