@@ -56,7 +56,7 @@ def register_results(request):
     if request.method == "POST":  # This will retrieve the form fields, in this case, char_search
         sign_up_form1 = forms.SignUpForm(request.POST) # creating a variable that receives the POST
         if sign_up_form1.is_valid(): #If request is valid, I pass the value of "name"
-            name = sign_up_form1.cleaned_data["name"]
+            name = sign_up_form1.cleaned_data["first_name"]
             last_name = sign_up_form1.cleaned_data["last_name"]
             email = sign_up_form1.cleaned_data["email"]
             username = sign_up_form1.cleaned_data["username"]
