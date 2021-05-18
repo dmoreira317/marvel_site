@@ -22,4 +22,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path("", views.vista2, name="index" ),
     path('pages/', include('marvelapp01.urls')),
+    path("", include('social_django.urls')),
+    path('profile/', views.profile, name="profile"),
 ]

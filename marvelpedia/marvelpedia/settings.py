@@ -12,6 +12,8 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 
 from pathlib import Path
 import os
+from dotenv import load_dotenv
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -42,6 +44,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'marvelapp01',
+    'social_django',
 ]
 
 MIDDLEWARE = [
@@ -130,3 +133,30 @@ STATIC_URL = '/static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 STATICFILES_DIRS = [STATIC_DIR]
+
+
+# Auth0 settings
+load_dotenv()
+DOMAIN = os.getenv('AUTH0_DOMAIN'),
+CLIENTID = os.getenv('AUTH0_CLIENTID'),
+CLIENTSECRET = os.getenv('AUTH0_CLIENTSECRET'),
+
+SOCIAL_AUTH_TRAILING_SLASH = False  # Remove trailing slash from routes
+SOCIAL_AUTH_AUTH0_DOMAIN = f'{DOMAIN}'
+SOCIAL_AUTH_AUTH0_KEY = f'{CLIENTID}'
+SOCIAL_AUTH_AUTH0_SECRET = f'{CLIENTSECRET}'
+SOCIAL_AUTH_AUTH0_SCOPE = [
+    'openid',
+    'profile',
+    'email'
+]
+
+
+AUTHENTICATION_BACKENDS = {
+    'social_core.backends.auth0.Auth0OAuth2',
+    'django.contrib.auth.backends.ModelBackend'
+}
+
+LOGIN_URL = '/login/auth0'
+LOGIN_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = '/'

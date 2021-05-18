@@ -3,7 +3,7 @@ from django.http import HttpResponse # This takes http requests
 from . import forms
 from marvelapp01.marvelApiRequests import API_request
 from marvelapp01.create_dicts import create_character_dictionary, image_view_generator
-
+from django.contrib.auth.decorators import login_required
 import json
 
 # Create your views here.
@@ -82,3 +82,19 @@ def register_results(request):
 def sign_up_form(request):
     dictionary = {}
     return render(request, "marvelapp01/sign_up_form.html", context=dictionary)
+
+
+@login_required
+def profile(request):
+    user = request.user
+    auth0user = user.social_auth.get(provider='auth0')
+    userdata = {
+        'user_id': auth0user.uid,
+        'name': user.first_name,
+        'picture': auth0user.extra_data['picture']
+    }
+
+    return render(request, 'marvelapp01/profile.html', {
+        'auth0User': auth0user,
+        'userdata': json.dumps(userdata, indent=4)
+    })
