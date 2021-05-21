@@ -4,7 +4,7 @@ from . import forms
 from marvelapp01.marvelApiRequests import API_request
 from marvelapp01.create_dicts import create_character_dictionary, image_view_generator
 from django.shortcuts import redirect
-from django.contrib.auth import authenticate
+from django.contrib.auth import authenticate, login
 from django.contrib.auth.forms import AuthenticationForm
 
 import json
@@ -111,10 +111,24 @@ def login_form(request):
         form = AuthenticationForm(data=request.POST)
         if form.is_valid():
             username = form.cleaned_data['username']
-            request.session['username'] = username
+            password = form.cleaned_data['password']
+            if username and password:
+                user = authenticate(username=username, password=password)
+                if user is not None:
+                    if user.is_active:
+                        request.session['username'] = username
+                        login(request, user)
             print('form and session started')
         else:
             form = AuthenticationForm()
             print('not in session')
         
     return render(request, "marvelapp01/login.html", context=dictionary)
+
+# To be modified yet
+# def logout(request):
+#    try:
+#       del request.session['username']
+#    except:
+#       pass
+#    return HttpResponse("<strong>You are logged out.</strong>")
