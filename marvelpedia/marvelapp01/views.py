@@ -1,9 +1,9 @@
-from django.forms.utils import ErrorList
 from django.shortcuts import render
 from django.http import HttpResponse # This takes http requests
 from . import forms
 from marvelapp01.marvelApiRequests import API_request
 from marvelapp01.create_dicts import create_character_dictionary, image_view_generator
+from django.shortcuts import redirect
 
 import json
 
@@ -62,23 +62,27 @@ def register_results(request):
             email = sign_up_form1.cleaned_data["email"]
             username = sign_up_form1.cleaned_data["username"]
             
-            print("first", sign_up_form1.cleaned_data["password"])
-            print("first", sign_up_form1.cleaned_data["password1"])
+            # print("first", sign_up_form1.cleaned_data["password1"])
+            # print("second", sign_up_form1.cleaned_data["password2"])
             #check password
             password = sign_up_form1.clean_password()
             
             # Creating a new User object from the submitted form
             sign_up_form1.save()
 
-            print("Name = " + name) #print in terminal
-            print("Last name = " + last_name)
-            print("Username = " + username)
-            print("Email = " + email)
-            print("pass = " + password)
+            # print("Name = " + name) #print in terminal
+            # print("Last name = " + last_name)
+            # print("Username = " + username)
+            # print("Email = " + email)
+            # print("pass = " + password)
         else:
             print("Invalid form request")
-            error = sign_up_form1.is_valid()
-            print(sign_up_form1.errors)
+            error = sign_up_form1.errors
+            print(error)
+            dictionary = {
+                'error': error
+            }
+            return redirect('marvelapp01:sign_up_form')
     else:
         print("Invalid POST")
         
@@ -88,5 +92,9 @@ def register_results(request):
 
     
 def sign_up_form(request):
-    dictionary = {}
+    
+    form = forms.SignUpForm()
+    dictionary = {
+            "form": form,
+        }
     return render(request, "marvelapp01/sign_up_form.html", context=dictionary)
