@@ -20,7 +20,7 @@ class SignUpForm(UserCreationForm):
 
     class Meta:
         model = User
-        fields = ['username','email','first_name', 'last_name']
+        fields = ['username','email','first_name', 'last_name', 'password1', 'password2']
     
     def clean_password(self):
         password1 = self.cleaned_data.get("password1")
