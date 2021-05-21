@@ -6,7 +6,7 @@ from marvelapp01.marvelApiRequests import API_request
 from marvelapp01.create_dicts import create_character_dictionary, image_view_generator
 from django.http import HttpResponseRedirect
 from django.urls import reverse
-
+from django.shortcuts import redirect
 
 import json
 
@@ -65,8 +65,8 @@ def register_results(request):
             email = sign_up_form1.cleaned_data["email"]
             username = sign_up_form1.cleaned_data["username"]
             
-            print("first", sign_up_form1.cleaned_data["password1"])
-            print("second", sign_up_form1.cleaned_data["password2"])
+            # print("first", sign_up_form1.cleaned_data["password1"])
+            # print("second", sign_up_form1.cleaned_data["password2"])
             #check password
             password = sign_up_form1.clean_password()
             
@@ -85,7 +85,7 @@ def register_results(request):
             dictionary = {
                 'error': error
             }
-            return HttpResponseRedirect(reverse('marvelapp01:sign_up_form'))
+            return redirect('marvelapp01:sign_up_form')
     else:
         print("Invalid POST")
         
@@ -95,6 +95,7 @@ def register_results(request):
 
     
 def sign_up_form(request):
+    
     form = forms.SignUpForm()
     dictionary = {
             "form": form,
