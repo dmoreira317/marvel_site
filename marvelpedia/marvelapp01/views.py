@@ -4,8 +4,9 @@ from . import forms
 from marvelapp01.marvelApiRequests import API_request
 from marvelapp01.create_dicts import create_character_dictionary, image_view_generator
 from django.shortcuts import redirect
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.forms import AuthenticationForm
+from django.contrib.sessions.models import Session
 
 import json
 
@@ -125,10 +126,8 @@ def login_form(request):
         
     return render(request, "marvelapp01/login.html", context=dictionary)
 
-# To be modified yet
-# def logout(request):
-#    try:
-#       del request.session['username']
-#    except:
-#       pass
-#    return HttpResponse("<strong>You are logged out.</strong>")
+def sign_out(request): # my logout view
+    request.session.clear()
+    logout(request)
+    print("All sessions closed")
+    return render(request, "marvelapp01/login.html")
