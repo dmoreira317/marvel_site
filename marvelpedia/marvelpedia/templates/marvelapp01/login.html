@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+{%extends "marvelapp01/template1.html" %} <!--To call the template doc-->
+
+{% block head %} <!--To modify the title of the page or any other head label-->
+    <!--html page title-->
+    <title>Marvelpedia - Log-In</title>
+{% endblock %}
+
+{% block block1 %}    
+<!--content-->
+<div class="container justify-content-center col-lg-5 align-items-center"> 
+    <div class="my-5 text-white">
+        <h1 class="text-white text-center">Log in with your username</h1>
+        <form class="align-items-center mx-3" method="POST">{% csrf_token %}
+            <div class="form-row mx-3">
+                <div class="mx-5 my-3">
+                    <label for="validationDefaultUsername">Username</label>
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="inputGroupPrepend2">@</span>
+                        </div>
+                        <input type="text" class="form-control" id="username" aria-describedby="inputGroupPrepend2" placeholder="username" name="username" required>
+                    </div>
+                </div>
+            </div>
+            <div class="form-row mx-3">
+                <div class="mx-5 my-3">
+                    <label for="validationDefaultPassword">Password</label>
+                    <input type="password" class="form-control" id="password" name="password" required>
+                </div>
+            </div>
+            <div class="form-row mx-4 align-items-center">
+                <div class="container text-center">
+                    <button class="btn btn-primary mx-4 my-3 px-4" type="submit">Submit</button>
+                </div>
+            </div>
+        </form>    
+    </div>
+</div>
+
+
+{% endblock %}
+ 
