@@ -62,19 +62,19 @@ def register_results(request):
             email = sign_up_form1.cleaned_data["email"]
             username = sign_up_form1.cleaned_data["username"]
             
-            print("first", sign_up_form1.cleaned_data["password"])
             print("first", sign_up_form1.cleaned_data["password1"])
+            print("first", sign_up_form1.cleaned_data["password2"])
             #check password
             password = sign_up_form1.clean_password()
             
             # Creating a new User object from the submitted form
             sign_up_form1.save()
 
-            print("Name = " + name) #print in terminal
-            print("Last name = " + last_name)
-            print("Username = " + username)
-            print("Email = " + email)
-            print("pass = " + password)
+            # print("Name = " + name) #print in terminal
+            # print("Last name = " + last_name)
+            # print("Username = " + username)
+            # print("Email = " + email)
+            # print("pass = " + password)
         else:
             print("Invalid form request")
             error = sign_up_form1.is_valid()
