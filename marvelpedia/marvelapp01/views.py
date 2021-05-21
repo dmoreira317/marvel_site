@@ -1,11 +1,8 @@
-from django.forms.utils import ErrorList
 from django.shortcuts import render
 from django.http import HttpResponse # This takes http requests
 from . import forms
 from marvelapp01.marvelApiRequests import API_request
 from marvelapp01.create_dicts import create_character_dictionary, image_view_generator
-from django.http import HttpResponseRedirect
-from django.urls import reverse
 from django.shortcuts import redirect
 
 import json
