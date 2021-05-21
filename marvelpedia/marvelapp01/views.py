@@ -98,3 +98,11 @@ def sign_up_form(request):
             "form": form,
         }
     return render(request, "marvelapp01/sign_up_form.html", context=dictionary)
+
+def log_in_form(request):
+    
+    form = forms.SignUpForm()
+    dictionary = {
+            "form": form,
+        }
+    return render(request, "marvelapp01/log_in.html", context=dictionary)
