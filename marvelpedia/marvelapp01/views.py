@@ -130,4 +130,4 @@ def sign_out(request): # my logout view
     request.session.clear()
     logout(request)
     print("All sessions closed")
-    return render(request, "marvelapp01/login.html")
+    return render(request, "marvelapp01/logout.html")
