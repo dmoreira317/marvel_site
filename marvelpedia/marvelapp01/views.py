@@ -136,11 +136,14 @@ def sign_out(request): # my logout view
 
 @login_required(login_url='/pages/login/')
 def profile(request):
-    username = request.user.get_username()
-    full_name = request.user.get_full_name()
-    print()
+    user = request.user
+    if request.method == 'POST' :
+        form = forms.SignUpForm(request.POST, instance=user)
+        if form.is_valid():
+            form.save(commit=True)
+    form = forms.SignUpForm()
     dictionary = {
-        'username': username,
-        'full_name': full_name,
+    'object_list': user,
+    'form': form
     }
     return render(request, "marvelapp01/profile.html", context=dictionary)
