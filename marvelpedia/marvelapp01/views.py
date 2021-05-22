@@ -131,3 +131,7 @@ def sign_out(request): # my logout view
     logout(request)
     print("All sessions closed")
     return render(request, "marvelapp01/logout.html")
+
+def profile(request):
+    dictionary = {}
+    return render(request, "marvelapp01/profile.html", context=dictionary)

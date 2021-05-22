@@ -1,16 +1,15 @@
 <!DOCTYPE html>
 {%extends "marvelapp01/template1.html" %} <!--To call the template doc-->
-
 {% block head %} <!--To modify the title of the page or any other head label-->
     <!--html page title-->
-    <title>Marvelpedia - Logged out!</title>
+    <title>Marvelpedia - User Profile</title>
 {% endblock %}
 
 {% block block1 %}    
 <!--content-->
 <div class="container justify-content-center col-lg-5 align-items-center"> 
     <div class="my-5 text-white">
-        <h1 class="text-white text-center">Log out successful!</h1>
+        <h1 class="text-white text-center">{{user.first_name}}'s Profile</h1>
         <!-- Call to action -->
         {% if request.user.is_authenticated %}
         {% else %}
@@ -25,4 +24,3 @@
         {% endif %}
 
 {% endblock %}
- 
