@@ -12,6 +12,10 @@
         <h1 class="text-white text-center">{{user.first_name}}'s Profile</h1>
         <!-- Call to action -->
         {% if request.user.is_authenticated %}
+        <h1>Username: {{request.user.get_username}}</h1>
+        <h1>email: {{request.user.email}}</h1>
+        <h1>Full name: {{request.user.get_full_name}}</h1>
+
         {% else %}
         <ul class="list-unstyled list-inline text-center py-2">
           <li class="list-inline-item">

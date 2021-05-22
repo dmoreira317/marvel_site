@@ -7,6 +7,8 @@ from django.shortcuts import redirect
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.sessions.models import Session
+from django.contrib.auth.models import User
+from django.contrib.auth.decorators import login_required
 
 import json
 
@@ -132,6 +134,13 @@ def sign_out(request): # my logout view
     print("All sessions closed")
     return render(request, "marvelapp01/logout.html")
 
+@login_required(login_url='/pages/login/')
 def profile(request):
-    dictionary = {}
+    username = request.user.get_username()
+    full_name = request.user.get_full_name()
+    print()
+    dictionary = {
+        'username': username,
+        'full_name': full_name,
+    }
     return render(request, "marvelapp01/profile.html", context=dictionary)
