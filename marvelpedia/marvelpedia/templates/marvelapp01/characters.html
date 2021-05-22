@@ -10,10 +10,9 @@
 <!--content-->
     <div class="my-5">
         <h1 class="text-white text-center">Character's search</h1>
-        <form action="{% url 'marvelapp01:characters_search' %}" method="get" class="text-center">
+        <form action="{% url 'marvelapp01:characters_search' %}" method="get" class="text-center mt-5">
             <span class="text-white"> Please enter the character's name </span><input type="text" name="name" id="name">
-            <input type="submit" value="Submit" class="btn btn-primary">
-            
+            <input type="submit" value="Submit" class="btn btn-danger mx-2 mb-1">
         </form>
     </div>
 {% endblock %}

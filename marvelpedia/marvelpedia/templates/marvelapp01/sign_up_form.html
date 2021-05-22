@@ -57,7 +57,7 @@
                 </div>
                 <div class="form-row mx-4 align-items-center">
                     <div class="container text-center">
-                        <button class="btn btn-primary mx-4 my-3 px-4" type="submit">Submit</button>
+                        <button class="btn btn-danger mx-4 my-3 px-4" type="submit">Submit</button>
                     </div>
                 </div>
             </div>
@@ -65,7 +65,7 @@
     </div>
 </div> 
 <div>
-{% if form.errors %}
+{% if error %}
     
     {{form.username.errors.as_text}}
     # this will remove the `<ul></ul>` tag that django generates by default
