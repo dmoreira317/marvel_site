@@ -31,10 +31,17 @@
               </div>
           </div>
           <div class="form-row mx-3">
-      
+            <div class="mx-5 my-3">
+              <label for="validationDefaultPassword">Password</label>
+              <input type="password" class="form-control" id="password1" name="password1" required>
+            </div>
+            <div class="mx-5 my-3">
+              <label for="validationDefaultPassword">Please re-enter password</label>
+              <input type="password" class="form-control" id="password2" name="password2" required>
+            </div>
               <div class="mx-5 my-3">
-                  <label>Email</label>
-                  <input type="email" class="form-control" id="email" value="{{user.email}}" name="email" required>
+                <label>Email</label>
+                <input type="email" class="form-control" id="email" value="{{user.email}}" name="email" required>
               </div>
           </div>
           <div class="form-row mx-3 align-items-center">

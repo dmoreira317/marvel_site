@@ -1,7 +1,7 @@
 from django import forms
 from django.forms.models import ModelForm
 from django.contrib.auth.models import User
-from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 # from marvelapp01.models import Person
 
 # Form1 created to take the name in character search page
@@ -36,5 +36,3 @@ class SignUpForm(UserCreationForm):
         if commit:
             user.save()
         return user
-
-    

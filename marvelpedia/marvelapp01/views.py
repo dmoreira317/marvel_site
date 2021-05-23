@@ -137,11 +137,18 @@ def sign_out(request): # my logout view
 @login_required(login_url='/pages/login/')
 def profile(request):
     user = request.user
+    form = forms.SignUpForm()
     if request.method == 'POST' :
         form = forms.SignUpForm(request.POST, instance=user)
         if form.is_valid():
-            form.save(commit=True)
-    form = forms.SignUpForm()
+            form.save()
+        else:
+            print("Invalid form request")
+            error = form.errors
+            print(error)
+            dictionary = {
+                'error': error
+            }
     dictionary = {
     'object_list': user,
     'form': form
