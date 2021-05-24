@@ -5,10 +5,12 @@ from marvelapp01.marvelApiRequests import API_request
 from marvelapp01.create_dicts import create_character_dictionary, image_view_generator
 from django.shortcuts import redirect
 from django.contrib.auth import authenticate, login, logout
-from django.contrib.auth.forms import AuthenticationForm
+from django.contrib.auth.forms import AuthenticationForm, PasswordChangeForm
 from django.contrib.sessions.models import Session
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth import views as auth_views
+from django.urls import reverse_lazy
 
 import json
 
@@ -62,10 +64,10 @@ def register_results(request):
     if request.method == "POST":  # This will retrieve the form fields, in this case, char_search
         sign_up_form1 = forms.SignUpForm(request.POST) # creating a variable that receives the POST
         if sign_up_form1.is_valid(): #If request is valid, I pass the value of "name"
-            name = sign_up_form1.cleaned_data["first_name"]
-            last_name = sign_up_form1.cleaned_data["last_name"]
-            email = sign_up_form1.cleaned_data["email"]
-            username = sign_up_form1.cleaned_data["username"]
+            # name = sign_up_form1.cleaned_data["first_name"]
+            # last_name = sign_up_form1.cleaned_data["last_name"]
+            # email = sign_up_form1.cleaned_data["email"]
+            # username = sign_up_form1.cleaned_data["username"]
             
             # print("first", sign_up_form1.cleaned_data["password1"])
             # print("second", sign_up_form1.cleaned_data["password2"])
@@ -137,11 +139,12 @@ def sign_out(request): # my logout view
 @login_required(login_url='/pages/login/')
 def profile(request):
     user = request.user
-    form = forms.SignUpForm()
+    form = forms.UpdateProfileForm()
     if request.method == 'POST' :
-        form = forms.SignUpForm(request.POST, instance=user)
+        form = forms.UpdateProfileForm(request.POST, instance=user)
         if form.is_valid():
             form.save()
+            print("Profile changes updated correctly")
         else:
             print("Invalid form request")
             error = form.errors

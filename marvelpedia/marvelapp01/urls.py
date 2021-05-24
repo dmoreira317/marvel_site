@@ -1,6 +1,8 @@
 from django.conf.urls import url
 from django.urls import path
 from marvelapp01 import views
+from django.contrib.auth import views as auth_views
+from django.urls import reverse_lazy
 
 ### aqui se generan las rutas relativas
 
@@ -16,5 +18,7 @@ urlpatterns = [
     path("login/", views.login_form, name = "login"),
     path("logout/", views.sign_out, name="signout"),
     path("profile/", views.profile, name="profile"),
+    path("password_change/", auth_views.PasswordChangeView.as_view(success_url=reverse_lazy('marvelapp01:password_change_done') ,template_name='marvelapp01/password_change.html'), name="password_change"),
+    path("password_change/done/", auth_views.PasswordChangeDoneView.as_view(template_name='marvelapp01/password_change_success.html'), name='password_change_done')
 
 ]

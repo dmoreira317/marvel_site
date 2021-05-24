@@ -40,7 +40,7 @@
                     <label for="validationDefaultPassword">Please re-enter password</label>
                     <input type="password" class="form-control" id="password2" name="password2" required>
                 </div>
-        
+                <p>{{ sign_up_form1.password.errors.as_text }}</p>
                 <div class="mx-5 my-3">
                     <label>Email</label>
                     <input type="email" class="form-control" id="email" placeholder="example@onemail.com" name="email" required>
