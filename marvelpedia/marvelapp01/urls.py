@@ -9,15 +9,20 @@ from django.urls import reverse_lazy
 app_name = "marvelapp01"
 
 urlpatterns = [
+    # marvelapp pages
     path("characters/", views.characters, name = "characters"),
     path("series/", views.series, name = "series"),
     path("comics/", views.comics, name = "comics"),
     path("characters_search/", views.characters_search, name = "characters_search"),
     path("sign_up_form/", views.sign_up_form, name = "sign_up_form"),
     path("register_results/", views.register_results, name = "register_results"),
+    
+    # user login, logout and profile
     path("login/", views.login_form, name = "login"),
     path("logout/", views.sign_out, name="signout"),
     path("profile/", views.profile, name="profile"),
+    
+    # Password change
     path("password_change/", auth_views.PasswordChangeView.as_view(success_url=reverse_lazy('marvelapp01:password_change_done') ,template_name='marvelapp01/password_change.html'), name="password_change"),
     path("password_change/done/", auth_views.PasswordChangeDoneView.as_view(template_name='marvelapp01/password_change_success.html'), name='password_change_done')
 
