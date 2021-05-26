@@ -9,7 +9,7 @@ from django.contrib.auth import authenticate
 class Form1(forms.Form):
     name = forms.CharField()
 
-# The sign up takes the Person model as a template
+# The sign up takes the Person model as a template, this is a deprecated method in this site, i keep it just as example
 # class SignUpForm(ModelForm):
 #     class Meta:
 #         model = Person
@@ -23,6 +23,7 @@ class SignUpForm(UserCreationForm):
         model = User
         fields = ['username','email','first_name', 'last_name', 'password1', 'password2']
     
+    # parsing both incoming passwords
     def clean_password(self):
         password1 = self.cleaned_data.get("password1")
         print('password1: ', password1)
@@ -43,11 +44,13 @@ class SignUpForm(UserCreationForm):
             user.save()
         return user
 
+# Modifying User to be able to update just these fields
 class UpdateProfileForm(forms.ModelForm):
     class Meta:
         model = User
         fields = ['username','email','first_name', 'last_name']
     
+# Modifying this class to give it the form-control attrs
 class FormChangePassword(PasswordChangeForm):
     def __init__(self, *args, **kwargs):
         super(FormChangePassword, self).__init__(*args, **kwargs)

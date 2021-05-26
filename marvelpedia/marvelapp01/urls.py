@@ -25,6 +25,6 @@ urlpatterns = [
     
     # Password change
     path("password_change/", views.change_password, name='password_change'),
-    path("password_change/done/", auth_views.PasswordChangeDoneView.as_view(template_name='marvelapp01/password_change_success.html'), name='password_change_done')
-
+    path("password_change/done/", auth_views.PasswordChangeDoneView.as_view(template_name='marvelapp01/password_change_success.html'), name='password_change_done'),
+    
 ]
