@@ -59,24 +59,24 @@ def series(request):
     return render(request, "marvelapp01/series.html", context=dictionary)
 
 def register_results(request):
-    sign_up_form = forms.SignUpForm() # class defined in forms.py
-    dictionary = {"sign_up_form": sign_up_form}
+    form = forms.SignUpForm() # class defined in forms.py
+    dictionary = {"sign_up_form": form}
     
     if request.method == "POST":  # This will retrieve the form fields, in this case, char_search
-        sign_up_form1 = forms.SignUpForm(request.POST) # creating a variable that receives the POST
-        if sign_up_form1.is_valid(): #If request is valid, I pass the value of "name"
-            # name = sign_up_form1.cleaned_data["first_name"]
-            # last_name = sign_up_form1.cleaned_data["last_name"]
-            # email = sign_up_form1.cleaned_data["email"]
-            # username = sign_up_form1.cleaned_data["username"]
+        form = forms.SignUpForm(request.POST) # creating a variable that receives the POST
+        if form.is_valid(): #If request is valid, I pass the value of "name"
+            # name = form.cleaned_data["first_name"]
+            # last_name = form.cleaned_data["last_name"]
+            # email = form.cleaned_data["email"]
+            # username = form.cleaned_data["username"]
             
-            # print("first", sign_up_form1.cleaned_data["password1"])
-            # print("second", sign_up_form1.cleaned_data["password2"])
+            # print("first", form.cleaned_data["password1"])
+            # print("second", form.cleaned_data["password2"])
             #check password
-            password = sign_up_form1.clean_password()
+            password = form.clean_password()
             
             # Creating a new User object from the submitted form
-            sign_up_form1.save()
+            form.save()
 
             # print("Name = " + name) #print in terminal
             # print("Last name = " + last_name)
@@ -85,7 +85,7 @@ def register_results(request):
             # print("pass = " + password)
         else:
             print("Invalid form request")
-            error = sign_up_form1.errors
+            error = form.errors
             print(error)
             dictionary = {
                 'error': error
@@ -183,7 +183,3 @@ def change_password(request):
     'form': form
     }
     return render(request, "marvelapp01/password_change.html", context=dictionary)
-
-    
-    # template_name = 'marvelapp01/password_change.html'
-    # success_url = reverse_lazy('marvelapp01:password_change_done')
