@@ -58,54 +58,36 @@ def series(request):
     dictionary = {}
     return render(request, "marvelapp01/series.html", context=dictionary)
 
-def register_results(request):
+def sign_up_form(request):
     form = forms.SignUpForm() # class defined in forms.py
-    dictionary = {"sign_up_form": form}
+    dictionary = {"form": form}
     
     if request.method == "POST":  # This will retrieve the form fields, in this case, char_search
         form = forms.SignUpForm(request.POST) # creating a variable that receives the POST
         if form.is_valid(): #If request is valid, I pass the value of "name"
             # name = form.cleaned_data["first_name"]
-            # last_name = form.cleaned_data["last_name"]
-            # email = form.cleaned_data["email"]
-            # username = form.cleaned_data["username"]
             
             # print("first", form.cleaned_data["password1"])
             # print("second", form.cleaned_data["password2"])
             #check password
-            password = form.clean_password()
+            password = form.clean_password2()
             
             # Creating a new User object from the submitted form
             form.save()
 
             # print("Name = " + name) #print in terminal
-            # print("Last name = " + last_name)
-            # print("Username = " + username)
-            # print("Email = " + email)
-            # print("pass = " + password)
+            return redirect('register_results/')
         else:
+            form = forms.SignUpForm()
             print("Invalid form request")
-            error = form.errors
-            print(error)
-            dictionary = {
-                'error': error
-            }
-            return redirect('marvelapp01:sign_up_form')
-    else:
-        print("Invalid POST")
         
-    
-    #print(dictionary["sign_up_form"])
-    return render(request, "marvelapp01/register_results.html", context=dictionary)
+    #print(dictionary["form"])
+    return render(request, "marvelapp01/sign_up_form.html", context=dictionary)
 
     
-def sign_up_form(request):
-    
-    form = forms.SignUpForm()
-    dictionary = {
-            "form": form,
-        }
-    return render(request, "marvelapp01/sign_up_form.html", context=dictionary)
+def register_results(request):
+    dictionary = {}
+    return render(request, "marvelapp01/register_results.html", context=dictionary)
 
 def login_form(request):
     username = 'not logged in'

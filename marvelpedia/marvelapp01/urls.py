@@ -15,8 +15,10 @@ urlpatterns = [
     path("series/", views.series, name = "series"),
     path("comics/", views.comics, name = "comics"),
     path("characters_search/", views.characters_search, name = "characters_search"),
+    
+    # user sign up
     path("sign_up_form/", views.sign_up_form, name = "sign_up_form"),
-    path("register_results/", views.register_results, name = "register_results"),
+    path("sign_up_form/register_results/", views.register_results, name = "register_results"),
     
     # user login, logout and profile
     path("login/", views.login_form, name = "login"),
@@ -26,5 +28,5 @@ urlpatterns = [
     # Password change
     path("password_change/", views.change_password, name='password_change'),
     path("password_change/done/", auth_views.PasswordChangeDoneView.as_view(template_name='marvelapp01/password_change_success.html'), name='password_change_done'),
-    
+
 ]

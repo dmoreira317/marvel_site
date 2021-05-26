@@ -11,9 +11,11 @@
 <div class="container justify-content-center col-lg-5 align-items-center"> 
     <div class="my-5 text-white">
         <h1 class="text-white text-center">Sign Up Form</h1>
-        <form class="align-items-center mx-3" action="{% url 'marvelapp01:register_results' %}" method="POST">{% csrf_token %}
+        <form class="align-items-center mx-3" action="{% url 'marvelapp01:sign_up_form' %}" method="POST">{% csrf_token %}
             <div class="form-row mx-3">
-                <div class="mx-5 my-3">
+                {{ form.as_p}}
+                
+                <!-- <div class="mx-5 my-3">
                     <label for="validationDefault01">First name</label>
                     <input type="text" class="form-control" id="first_name" placeholder="name" name="first_name"required>
                 </div>
@@ -29,9 +31,9 @@
                         </div>
                         <input type="text" class="form-control" id="username" aria-describedby="inputGroupPrepend2" placeholder="username" name="username" required>
                     </div>
-                </div>
+                </div> -->
             </div>
-            <div class="form-row mx-3">
+            <!-- <div class="form-row mx-3">
                 <div class="mx-5 my-3">
                     <label for="validationDefaultPassword">Password</label>
                     <input type="password" class="form-control" id="password1" name="password1" required>
@@ -45,16 +47,16 @@
                     <label>Email</label>
                     <input type="email" class="form-control" id="email" placeholder="example@onemail.com" name="email" required>
                 </div>
-            </div>
+            </div> -->
             <div class="form-row mx-3 align-items-center">
-                <div class="form-group mx-5">
+                <!-- <div class="form-group mx-5">
                     <div class="form-check">
                         <input class="form-check-input" type="checkbox" value="" id="invalidCheck2" required>
                         <label class="form-check-label" for="invalidCheck2">
                         Agree to terms and conditions
                         </label>
                     </div>
-                </div>
+                </div> -->
                 <div class="form-row mx-4 align-items-center">
                     <div class="container text-center">
                         <button class="btn btn-danger mx-4 my-3 px-4" type="submit">Submit</button>
