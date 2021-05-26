@@ -125,6 +125,7 @@ def login_form(request):
                         request.session['username'] = username
                         login(request, user)
             print('form and session started')
+            return redirect('index')
         else:
             form = AuthenticationForm()
             print('not in session')
