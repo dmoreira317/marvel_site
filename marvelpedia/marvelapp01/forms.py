@@ -2,7 +2,7 @@ from django import forms
 from django.core.exceptions import ValidationError
 from django.forms.models import ModelForm
 from django.contrib.auth.models import User
-from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
+from django.contrib.auth.forms import UserCreationForm, AuthenticationForm, PasswordChangeForm
 from django.contrib.auth import authenticate
 
 # Form1 created to take the name in character search page
@@ -47,3 +47,9 @@ class UpdateProfileForm(forms.ModelForm):
     class Meta:
         model = User
         fields = ['username','email','first_name', 'last_name']
+    
+class FormChangePassword(PasswordChangeForm):
+    def __init__(self, *args, **kwargs):
+        super(FormChangePassword, self).__init__(*args, **kwargs)
+        for field in ('old_password', 'new_password1', 'new_password2'):
+            self.fields[field].widget.attrs = {'class': 'form-control'}

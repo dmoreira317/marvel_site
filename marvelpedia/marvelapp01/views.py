@@ -11,6 +11,7 @@ from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import views as auth_views
 from django.urls import reverse_lazy
+from django.contrib.auth import update_session_auth_hash
 
 import json
 
@@ -157,3 +158,31 @@ def profile(request):
     'form': form
     }
     return render(request, "marvelapp01/profile.html", context=dictionary)
+
+@login_required(login_url='/pages/login/')
+def change_password(request):
+    user = request.user
+    form = forms.FormChangePassword(user)
+    if request.method == 'POST' :
+        form = forms.FormChangePassword(user, request.POST)
+        if form.is_valid():
+            user = form.save()
+            update_session_auth_hash(request, user)
+            print("Password changed")
+            return redirect('done/')
+        else:
+            print("Invalid form request")
+            error = form.errors
+            print(error)
+            dictionary = {
+                'error': error
+            }
+    dictionary = {
+    'object_list': user,
+    'form': form
+    }
+    return render(request, "marvelapp01/password_change.html", context=dictionary)
+
+    
+    # template_name = 'marvelapp01/password_change.html'
+    # success_url = reverse_lazy('marvelapp01:password_change_done')
