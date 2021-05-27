@@ -78,8 +78,9 @@ def sign_up_form(request):
             # print("Name = " + name) #print in terminal
             return redirect('register_results/')
         else:
-            form = forms.SignUpForm()
             print("Invalid form request")
+    else:
+        form = forms.SignUpForm()
         
     #print(dictionary["form"])
     return render(request, "marvelapp01/sign_up_form.html", context=dictionary)

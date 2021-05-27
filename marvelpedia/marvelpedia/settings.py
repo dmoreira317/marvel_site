@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'marvelapp01',
+    'widget_tweaks',
 ]
 
 MIDDLEWARE = [
