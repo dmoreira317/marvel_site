@@ -28,13 +28,13 @@ def characters(request):
     return render(request, "marvelapp01/characters.html", context=dictionary)
 
 def characters_search(request):
-    char_search = forms.Form1() # class defined in forms.py
-    dictionary = {"char_search": char_search}
+    form = forms.Characters() # class defined in forms.py
+    dictionary = {"char_search": form}
     
     if request.method == "GET":  # This will retrieve the form fields, in this case, char_search
-        char_search1 = forms.Form1(request.GET) # creating a variable that receives the GET
-        if char_search1.is_valid(): #If request is valid, I pass the value of "name"
-            name = char_search1.cleaned_data["name"]
+        form = forms.Characters(request.GET) # creating a variable that receives the GET
+        if form.is_valid(): #If request is valid, I pass the value of "name"
+            name = form.cleaned_data["name"]
             print("Name =" + name) #print in terminal
         
     url = f"https://gateway.marvel.com:443/v1/public/characters?name={name}"

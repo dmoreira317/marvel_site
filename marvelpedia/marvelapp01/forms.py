@@ -6,7 +6,7 @@ from django.contrib.auth.forms import UserCreationForm, AuthenticationForm, Pass
 from django.contrib.auth import authenticate
 
 # Form1 created to take the name in character search page
-class Form1(forms.Form):
+class Characters(forms.Form):
     name = forms.CharField()
 
 # The sign up takes the Person model as a template, this is a deprecated method in this site, i keep it just as example
