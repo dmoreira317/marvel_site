@@ -132,7 +132,7 @@ def sign_out(request): # my logout view
 @login_required(login_url='/pages/login/')
 def profile(request):
     user = request.user
-    form = forms.UpdateProfileForm()
+    form = forms.UpdateProfileForm(instance=user)
     if request.method == 'POST' :
         form = forms.UpdateProfileForm(request.POST, instance=user)
         if form.is_valid():
