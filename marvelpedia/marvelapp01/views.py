@@ -58,6 +58,7 @@ def series(request):
     dictionary = {}
     return render(request, "marvelapp01/series.html", context=dictionary)
 
+# Sign up form
 def sign_up_form(request):
     form = forms.SignUpForm() # class defined in forms.py
     dictionary = {"form": form}
@@ -69,6 +70,7 @@ def sign_up_form(request):
             
             # print("first", form.cleaned_data["password1"])
             # print("second", form.cleaned_data["password2"])
+            
             #check password
             password = form.clean_password2()
             
@@ -93,11 +95,12 @@ def sign_up_form(request):
     #print(dictionary["form"])
     return render(request, "marvelapp01/sign_up_form.html", context=dictionary)
 
-    
+# sign up success page   
 def register_results(request):
     dictionary = {}
     return render(request, "marvelapp01/register_results.html", context=dictionary)
 
+# Login page
 def login_form(request):
     username = 'not logged in'
     user = request.user
@@ -131,16 +134,18 @@ def login_form(request):
     'object_list': user,
     'form': form,
     }
-    
-      
+          
     return render(request, "marvelapp01/login.html", context=dictionary)
 
+# Sign out page
+@login_required(login_url='/pages/login/')
 def sign_out(request): # my logout view
     request.session.clear()
     logout(request)
     print("All sessions closed")
     return render(request, "marvelapp01/logout.html")
 
+# User profile update
 @login_required(login_url='/pages/login/')
 def profile(request):
     user = request.user
@@ -167,6 +172,7 @@ def profile(request):
 
     return render(request, "marvelapp01/profile.html", context=dictionary)
 
+# Password change page
 @login_required(login_url='/pages/login/')
 def change_password(request):
     user = request.user
