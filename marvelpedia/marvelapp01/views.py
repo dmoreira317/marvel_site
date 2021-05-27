@@ -100,6 +100,7 @@ def register_results(request):
 
 def login_form(request):
     username = 'not logged in'
+    user = request.user
     form = AuthenticationForm()
     dictionary = {
         'form': form
@@ -118,9 +119,20 @@ def login_form(request):
             print('form and session started')
             return redirect('index')
         else:
-            form = AuthenticationForm()
-            print('not in session')
-        
+            error = form.errors
+            print(error)
+            dictionary = {
+                'error': error
+            }
+    else:
+        form = AuthenticationForm()
+
+    dictionary = {
+    'object_list': user,
+    'form': form,
+    }
+    
+      
     return render(request, "marvelapp01/login.html", context=dictionary)
 
 def sign_out(request): # my logout view
@@ -145,10 +157,14 @@ def profile(request):
             dictionary = {
                 'error': error
             }
+    else:
+        form = forms.UpdateProfileForm(instance=user)
+
     dictionary = {
-    'object_list': user,
-    'form': form
+        'object_list': user,
+        'form': form,
     }
+
     return render(request, "marvelapp01/profile.html", context=dictionary)
 
 @login_required(login_url='/pages/login/')
@@ -169,8 +185,12 @@ def change_password(request):
             dictionary = {
                 'error': error
             }
+    else:
+        form = forms.FormChangePassword(user)
+
     dictionary = {
     'object_list': user,
-    'form': form
+    'form': form,
     }
+
     return render(request, "marvelapp01/password_change.html", context=dictionary)
