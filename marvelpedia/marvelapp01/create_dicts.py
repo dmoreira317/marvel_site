@@ -40,8 +40,19 @@ def character_list_dict(jsontext):
                         character_list_dict[f'{index}']['name']= character_list_dict_original["data"]["results"][index]["name"]
                         character_list_dict[f'{index}']["description"] = character_list_dict_original["data"]["results"][index]["description"]
                         character_list_dict[f'{index}']["thumbnail"] = character_list_dict_original["data"]["results"][index]["thumbnail"]
+                        extension = character_list_dict_original["data"]["results"][index]["thumbnail"]['extension']
+                        character_list_dict[f'{index}']['full_path'] = character_list_dict_original["data"]["results"][index]["thumbnail"]['path'] + f"/portrait_uncanny.{extension}"
                 index += 1
+        
         return character_list_dict        
     
     final_char_dict = get_all_values(character_list_dict_original)
     return final_char_dict
+
+# def image_view_generator_all_chars(dict, size):
+#     for hero in dict:
+#         extension = dict[hero]['thumbnail']["extension"]
+#         image_path_dict = {}
+#         image_path_dict[hero] = dict[hero]['thumbnail']["path"] + f"/{size}.{extension}"
+
+#     return image_path_dict

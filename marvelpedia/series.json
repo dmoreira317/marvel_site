@@ -1,0 +1,4 @@
+{
+    "code": 409,
+    "status": "You must pass at least one valid series if you set the series filter."
+}

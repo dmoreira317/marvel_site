@@ -213,11 +213,19 @@ def all_characters(request):
     #     f.close()    
 
     character_dict = character_list_dict(result)
-    print(character_dict)
     dictionary["character_dict"] = character_dict
 
-    # img_path = image_view_generator(character_dict["thumbnail"], "portrait_uncanny")
-    # dictionary["img_path"] = img_path
+    # img_paths = image_view_generator_all_chars(character_dict, "portrait_uncanny")
+    # dictionary["img_paths"] = img_paths
     
+    # test api request
+    # variable = "avengers"
+    # url = f"https://gateway.marvel.com:443/v1/public/characters?series={variable}"
+    # result = API_request(url)
+    # with open('series.json', 'w') as f:
+    #     f.write(json.dumps(json.loads(result), indent=4, sort_keys=True))
+    #     f.close() 
+    
+
     print(dictionary)
     return render(request, "marvelapp01/all_characters.html", context=dictionary)
