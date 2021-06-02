@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+{%extends "marvelapp01/template1.html" %} <!--To call the template doc-->
+
+{% block head %} <!--To modify the title of the page or any other head label-->
+    <!--html page title-->
+    {% load dictionary_filter%}
+    <title>Marvelpedia - All characters</title>
+{% endblock %}
+
+{% block block1 %}    
+<!--content-->
+<div class="row d-flex justify-content-center">   
+    <div class="card col-lg-3">
+        <img src="{{img_path}}" class="card-img-top" alt="char_image">
+        <div class="card-body">
+            <h5 class="card-title">{{character_list_dict.name}}</h5>
+            <p class="card-text">{{character_list_dict.description}} </p>
+            <p>Data provided by Marvel. © 2014 Marvel</p>
+        </div>
+    </div>
+</div> 
+{% endblock %}

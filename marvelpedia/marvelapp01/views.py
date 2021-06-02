@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponse # This takes http requests
 from . import forms
 from marvelapp01.marvelApiRequests import API_request
-from marvelapp01.create_dicts import create_character_dictionary, image_view_generator
+from marvelapp01.create_dicts import create_character_dictionary, image_view_generator, character_list_dict
 from django.shortcuts import redirect
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.forms import AuthenticationForm, PasswordChangeForm
@@ -12,7 +12,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth import views as auth_views
 from django.urls import reverse_lazy
 from django.contrib.auth import update_session_auth_hash
-
+import pprint
 import json
 
 # Create your views here.
@@ -200,3 +200,23 @@ def change_password(request):
     }
 
     return render(request, "marvelapp01/password_change.html", context=dictionary)
+
+
+def all_characters(request):
+    dictionary = {}
+    url = "https://gateway.marvel.com:443/v1/public/characters"
+    result = API_request(url)
+    # This below works to crate a pretty printed json of all marvel chars
+    # with open('all_characters.txt', 'w') as f:
+    #     f.write(json.dumps(json.loads(result), indent=4, sort_keys=True))
+    # f.close()    
+
+    character_dict = character_list_dict(result)
+    print(character_dict)
+    dictionary["character_dict"] = character_dict
+
+    # img_path = image_view_generator(character_dict["thumbnail"], "portrait_uncanny")
+    # dictionary["img_path"] = img_path
+    
+    print(dictionary)
+    return render(request, "marvelapp01/all_characters.html", context=dictionary)

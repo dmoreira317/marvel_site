@@ -15,6 +15,7 @@ urlpatterns = [
     path("series/", views.series, name = "series"),
     path("comics/", views.comics, name = "comics"),
     path("characters_search/", views.characters_search, name = "characters_search"),
+    path("all_characters/", views.all_characters, name = "all_characters"),
     
     # user sign up
     path("sign_up_form/", views.sign_up_form, name = "sign_up_form"),
