@@ -14,6 +14,7 @@ from django.urls import reverse_lazy
 from django.contrib.auth import update_session_auth_hash
 import pprint
 import json
+import random
 
 # Create your views here.
 def vista1(request):
@@ -21,6 +22,29 @@ def vista1(request):
 
 def vista2(request):
     dictionary = {}
+    API_characters_request_limit = 100
+    url = f"https://gateway.marvel.com:443/v1/public/characters?limit={API_characters_request_limit}"
+    result = API_request(url)
+    # This below works to crate a pretty printed json of all marvel chars
+    # with open('all_characters.json', 'w') as f:
+    #     f.write(json.dumps(json.loads(result), indent=4, sort_keys=True))
+    #     f.close()    
+
+    character_dict = character_list_dict(result)
+    dictionary["character_dict"] = character_dict
+    
+    # generating random characters for the card group
+    entry_list = list(character_dict.items())
+    print(entry_list)
+    random_entry1 = random.choice(entry_list)
+    print(random_entry1)
+    random_entry2 = random.choice(entry_list)
+    random_entry3 = random.choice(entry_list)
+
+    dictionary['random_entry1'] = random_entry1
+    dictionary['random_entry2'] = random_entry2
+    dictionary['random_entry3'] = random_entry3
+
     return render(request, "marvelapp01/index.html", context=dictionary)
 
 def characters(request):
@@ -46,7 +70,7 @@ def characters_search(request):
 
     img_path = image_view_generator(character_dict["thumbnail"], "portrait_uncanny")
     dictionary["img_path"] = img_path
-    
+
     print(dictionary)
     return render(request, "marvelapp01/characters_search.html", context=dictionary)
 
@@ -226,6 +250,5 @@ def all_characters(request):
     #     f.write(json.dumps(json.loads(result), indent=4, sort_keys=True))
     #     f.close() 
     
-
     print(dictionary)
     return render(request, "marvelapp01/all_characters.html", context=dictionary)

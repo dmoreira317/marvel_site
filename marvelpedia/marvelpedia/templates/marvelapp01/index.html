@@ -38,31 +38,52 @@
       
       <div class="container">
         <div class="row d-flex justify-content-center">
-            <div class="card col-lg-3 my-2 mx-2">
-                <img src="static/images/test_images/hulk.jpg" class="card-img-top" alt="hulk">
+            
+        <div class="card col-lg-3 my-2 mx-2">
+                {% for hero in random_entry1 %}
+                <img src="{{hero.full_path}}" class="card-img-top">
+                {%endfor%}
             <div class="card-body">
-            <h5 class="card-title">Hulk</h5>
-                <p class="card-text">Green, angry, purple-trousered</p>
+                {% for hero in random_entry1 %}
+                <h5 class="card-title">{{ hero.name}}</h5>
+                {%endfor%}
+                {% for hero in random_entry1 %}
+                <p class="card-text">{{ hero.description }}</p>
+                {%endfor%}
+                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                <a href="#" class="btn btn-primary">Get info!</a>
+                
+            </div>
+        </div>
+        <div class="card col-lg-3 my-2 mx-2">
+            {% for hero in random_entry2 %}
+            <img src="{{hero.full_path}}" class="card-img-top">
+            {%endfor%}
+            <div class="card-body">
+                {% for hero in random_entry2 %}
+                <h5 class="card-title">{{ hero.name}}</h5>
+                {%endfor%}
+                {% for hero in random_entry2 %}
+                <p class="card-text">{{ hero.description}}</p>
+                {%endfor%}
                 <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
                 <a href="#" class="btn btn-primary">Get info!</a>
             </div>
         </div>
         <div class="card col-lg-3 my-2 mx-2">
-            <img src="static/images/test_images/captain.jpg" class="card-img-top" alt="captain">
+            {% for hero in random_entry3 %}
+            <img src="{{hero.full_path}}" class="card-img-top">
+            {%endfor%}
             <div class="card-body">
-                <h5 class="card-title">Captain America</h5>
-                <p class="card-text">The Cap.</p>
-                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                {% for hero in random_entry3 %}
+                <h5 class="card-title">{{ hero.name}}</h5>
+                {%endfor%}
+                {% for hero in random_entry3 %}
+                <p class="card-text">{{ hero.description}}</p>
+                {%endfor%}
+                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>   
                 <a href="#" class="btn btn-primary">Get info!</a>
-            </div>
-        </div>
-        <div class="card col-lg-3 my-2 mx-2">
-            <img src="static/images/test_images/ironman.jpg" class="card-img-top" alt="ironman">
-            <div class="card-body">
-                <h5 class="card-title">Iron Man</h5>
-                <p class="card-text">Millionarie, playboy.</p>
-                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                <a href="#" class="btn btn-primary">Get info!</a>
+                
             </div>
         </div>
     </div>
