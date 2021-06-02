@@ -30,7 +30,7 @@ def character_list_dict(jsontext):
     character_list_dict = {}
     character_list_dict_original = json.loads(jsontext)
     print(character_list_dict_original["data"]["results"][1]['name'])
-    # for index in range(len(character_list_dict_original["data"]["results"])):
+
     # #saving only data to be shown into an array.
     def get_all_values(character_list_dict_original):
         index = 0
@@ -41,7 +41,6 @@ def character_list_dict(jsontext):
                         character_list_dict[f'{index}']["description"] = character_list_dict_original["data"]["results"][index]["description"]
                         character_list_dict[f'{index}']["thumbnail"] = character_list_dict_original["data"]["results"][index]["thumbnail"]
                 index += 1
-            # character_list_dict[name]["name"] =  character_list_dict_original["data"]["results"][0]["name"]
         return character_list_dict        
     
     final_char_dict = get_all_values(character_list_dict_original)

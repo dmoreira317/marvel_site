@@ -204,12 +204,13 @@ def change_password(request):
 
 def all_characters(request):
     dictionary = {}
-    url = "https://gateway.marvel.com:443/v1/public/characters"
+    API_characters_request_limit = 100
+    url = f"https://gateway.marvel.com:443/v1/public/characters?limit={API_characters_request_limit}"
     result = API_request(url)
     # This below works to crate a pretty printed json of all marvel chars
-    # with open('all_characters.txt', 'w') as f:
+    # with open('all_characters.json', 'w') as f:
     #     f.write(json.dumps(json.loads(result), indent=4, sort_keys=True))
-    # f.close()    
+    #     f.close()    
 
     character_dict = character_list_dict(result)
     print(character_dict)
