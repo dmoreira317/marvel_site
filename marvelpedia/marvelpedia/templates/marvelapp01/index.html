@@ -13,13 +13,22 @@
     <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-inner">
             <div class="carousel-item active">
-                <img src="static/images/test_images/captain.jpg" class="d-block w-100 rounded-pill shadow-lg p-3 mb-5 bg-white rounded" alt="Image">
+                <form action="{% url 'marvelapp01:characters_search' %}" method="GET"> 
+                    <input type="hidden" name="name" value="captain america">
+                    <input type="image" src="static/images/test_images/captain.jpg" class="d-block w-100 rounded-pill shadow-lg p-3 mb-5 bg-white rounded" alt="Image">
+                </form>        
             </div>
             <div class="carousel-item">
-                <img src="static/images/test_images/hulk.jpg" class="d-block w-100 rounded-pill shadow-lg p-3 mb-5 bg-white rounded" alt="Image">
+                <form action="{% url 'marvelapp01:characters_search' %}" method="GET"> 
+                    <input type="hidden" name="name" value="hulk">
+                    <input type="image" src="static/images/test_images/hulk.jpg" class="d-block w-100 rounded-pill shadow-lg p-3 mb-5 bg-white rounded" alt="Image">
+                </form>  
             </div>
             <div class="carousel-item">
-                <img src="static/images/test_images/ironman.jpg" class="d-block w-100 rounded-pill shadow-lg p-3 mb-5 bg-white rounded" alt="Image">
+                <form action="{% url 'marvelapp01:characters_search' %}" method="GET"> 
+                    <input type="hidden" name="name" value="iron man">
+                    <input type="image" src="static/images/test_images/ironman.jpg" class="d-block w-100 rounded-pill shadow-lg p-3 mb-5 bg-white rounded" alt="Image">
+                </form>  
             </div>
         </div>
         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
@@ -55,8 +64,8 @@
                     {% for hero in random_entry1 %}
                     <input type="hidden" name="name" value="{{hero.name}}"> 
                     {%endfor%}
-                    <button class="btn btn-primary"> Get Info!</button></form>
-                
+                    <button class="btn btn-primary"> Get Info!</button>
+                </form>
             </div>
         </div>
         <div class="card col-lg-3 my-2 mx-2">
@@ -75,7 +84,8 @@
                     {% for hero in random_entry2 %}
                     <input type="hidden" name="name" value="{{hero.name}}"> 
                     {%endfor%}
-                    <button class="btn btn-primary"> Get Info!</button></form>
+                    <button class="btn btn-primary"> Get Info!</button>
+                </form>
             </div>
         </div>
         <div class="card col-lg-3 my-2 mx-2">
@@ -94,11 +104,11 @@
                     {% for hero in random_entry3 %}
                     <input type="hidden" name="name" value="{{hero.name}}"> 
                     {%endfor%}
-                    <button class="btn btn-primary"> Get Info!</button></form>
+                    <button class="btn btn-primary"> Get Info!</button>
+                </form>
                     
                 
             </div>
         </div>
     </div>
-
 {% endblock %}
