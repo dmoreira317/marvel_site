@@ -11,6 +11,6 @@ I'm a Marvel fan since childhood, so when developing one of my first full projec
 `Django` `Python` `HTML` `Bootstrap` `Font Awesome`
 
 #### Marvel Attribution
-- This site was created based on data provided by [Marvel developers portal ](https://developer.marvel.com/).
+- This site was created based on data provided by [Marvel developers portal](https://developer.marvel.com/).
 - The data was retrieved from Marvel's API.
 - All the characters, images and related information, belong to [Marvel](https://www.marvel.com/).
