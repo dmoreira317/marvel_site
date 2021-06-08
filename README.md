@@ -2,7 +2,7 @@
 I'm a Marvel fan since childhood, so when developing one of my first full projects, it felt just right to build upon its vast Universe.
 
 #### Features
-- Character's search, which returns some info on sleected char.
+- Character's search, which returns some info on selected char.
 - Sign up, where you create your user and password for the site.
 - Login and profile for registered users, which also creates sessions that keep you logged in.
 - Profile and password changes section.
