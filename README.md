@@ -7,7 +7,7 @@ I'm a Marvel fan since childhood, so when developing one of my first full projec
 - Login and profile for registered users, which also creates sessions that keep you logged in.
 - Profile and password changes section.
 
-#### Framework and languages applied
+#### Framework and languages used
 `Django` `Python` `HTML` `Bootstrap`
 
 #### Marvel Attribution
